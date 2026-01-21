@@ -21,6 +21,10 @@ export const metadata: Metadata = {
   description: 'Permus is a Dubai-based enterprise software house specializing in AI Solutions, Digital Transformation, Full-Stack Development, and Scalable Enterprise Products.',
   keywords: ['AI Solutions', 'Digital Transformation', 'Enterprise Software', 'Dubai', 'Software Development', 'MyndLab', 'AssetGo', 'EquiDesk'],
   authors: [{ name: 'Permus Software House' }],
+  icons: {
+    icon: '/permus-favicon.svg',
+    shortcut: '/permus-favicon.svg',
+  },
   openGraph: {
     title: 'Permus Software House | Enterprise AI & Digital Transformation',
     description: 'Engineering Intelligent Digital Futures - Enterprise AI solutions, digital transformation, and scalable software products built in Dubai.',

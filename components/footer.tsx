@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
 import { Linkedin, Github, MapPin, Mail, Phone } from "lucide-react"
 
@@ -47,21 +48,19 @@ const socialLinks = [
 export function Footer() {
   return (
     <footer className="relative bg-midnight-navy border-t border-electric-violet/10">
-      <div className="container mx-auto px-6 py-16">
+      <div className="container mx-auto px-6 lg:px-10 py-16">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12">
           {/* Brand column */}
           <div className="col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-6">
-              <div className="relative w-10 h-10">
-                <div className="absolute inset-0 bg-electric-violet rounded-lg rotate-45" />
-                <div className="absolute inset-1 bg-midnight-navy rounded-md rotate-45" />
-                <span className="absolute inset-0 flex items-center justify-center font-serif text-xl font-bold text-interface-grey">
-                  P
-                </span>
-              </div>
-              <span className="font-serif text-xl font-bold tracking-tight text-interface-grey">
-                PERMUS
-              </span>
+              <Image
+                src="/permus_logo.svg"
+                alt="Permus"
+                width={170}
+                height={66}
+                className="h-12 w-auto"
+                priority
+              />
             </Link>
             <p className="text-sm text-interface-grey/60 mb-6 max-w-xs leading-relaxed">
               Enterprise-grade software solutions and AI innovation, engineered in Dubai for global impact.
