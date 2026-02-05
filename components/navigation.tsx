@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Image from "next/image"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -35,17 +34,19 @@ export function Navigation() {
         isScrolled ? "glass-nav py-3" : "bg-transparent py-5"
       )}
     >
-      <div className="container mx-auto px-6 lg:px-10 flex items-center justify-between">
+      <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <Image
-            src="/permus_logo.svg"
-            alt="Permus"
-            width={170}
-            height={66}
-            className="h-12 w-auto transition-transform duration-300 group-hover:scale-[1.02]"
-            priority
-          />
+          <div className="relative w-10 h-10">
+            <div className="absolute inset-0 bg-electric-violet rounded-lg rotate-45 group-hover:rotate-[55deg] transition-transform duration-300" />
+            <div className="absolute inset-1 bg-midnight-navy rounded-md rotate-45 group-hover:rotate-[55deg] transition-transform duration-300" />
+            <span className="absolute inset-0 flex items-center justify-center font-serif text-xl font-bold text-interface-grey">
+              P
+            </span>
+          </div>
+          <span className="font-serif text-xl font-bold tracking-tight text-interface-grey">
+            PERMUS
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
