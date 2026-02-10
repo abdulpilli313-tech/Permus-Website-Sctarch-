@@ -1,6 +1,7 @@
 import React from "react"
 import type { Metadata, Viewport } from 'next'
-import { Montserrat, Space_Grotesk } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
+import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
@@ -10,9 +11,14 @@ const montserrat = Montserrat({
   display: 'swap',
 });
 
-const spaceGrotesk = Space_Grotesk({ 
-  subsets: ["latin"],
-  variable: '--font-space-grotesk',
+const nextSphere = localFont({
+  src: [
+    { path: '../public/fonts/NextSphereLight.woff2', weight: '300', style: 'normal' },
+    { path: '../public/fonts/NextSphereRegular.woff2', weight: '400', style: 'normal' },
+    { path: '../public/fonts/NextSphereMedium.woff2', weight: '500', style: 'normal' },
+    { path: '../public/fonts/NextSphereBold.woff2', weight: '700', style: 'normal' },
+  ],
+  variable: '--font-nextsphere',
   display: 'swap',
 });
 
@@ -55,7 +61,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${montserrat.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${montserrat.variable} ${nextSphere.variable}`}>
       <body className="font-sans antialiased bg-midnight-navy text-interface-grey overflow-x-hidden">
         {children}
         <Analytics />

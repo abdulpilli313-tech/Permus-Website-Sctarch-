@@ -88,9 +88,9 @@
 }
 
 @theme inline {
-  --font-sans: 'Montserrat', 'Montserrat Fallback', system-ui, sans-serif;
-  --font-serif: 'Space Grotesk', 'Space Grotesk Fallback', serif;
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  --font-sans: var(--font-montserrat);
+  --font-serif: var(--font-nextsphere);
+  --font-mono: var(--font-montserrat);
   
   /* Brand colors (preserved from existing code) */
   --color-electric-violet: var(--electric-violet);
@@ -147,7 +147,13 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    line-height: 1.7;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    line-height: 1.25;
   }
 }
 
