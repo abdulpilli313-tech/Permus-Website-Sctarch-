@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -37,16 +38,14 @@ export function Navigation() {
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative w-10 h-10">
-            <div className="absolute inset-0 bg-electric-violet rounded-lg rotate-45 group-hover:rotate-[55deg] transition-transform duration-300" />
-            <div className="absolute inset-1 bg-midnight-navy rounded-md rotate-45 group-hover:rotate-[55deg] transition-transform duration-300" />
-            <span className="absolute inset-0 flex items-center justify-center font-serif text-xl font-bold text-interface-grey">
-              P
-            </span>
-          </div>
-          <span className="font-serif text-xl font-bold tracking-tight text-interface-grey">
-            PERMUS
-          </span>
+          <Image
+            src="/Permus%20Logo%201.svg"
+            alt="Permus"
+            width={72}
+            height={72}
+            className="w-35"
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation */}
