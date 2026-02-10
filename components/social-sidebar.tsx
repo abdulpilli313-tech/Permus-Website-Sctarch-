@@ -30,7 +30,7 @@ const socialLinks = [
 export function SocialSidebar() {
   return (
     <aside 
-      className="fixed left-6 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col gap-6"
+      className="fixed left-4 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col gap-4"
       aria-label="Social media links"
     >
       {socialLinks.map((link) => {
@@ -41,14 +41,14 @@ export function SocialSidebar() {
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-interface-grey/60 hover:text-data-cyan transition-all duration-300 hover:shadow-[0_0_24px_rgba(134,233,255,0.35)] rounded-full p-3"
+            className="text-interface-grey/60 hover:text-data-cyan transition-all duration-300 hover:shadow-[0_0_18px_rgba(134,233,255,0.35)] rounded-full p-2"
             aria-label={link.label}
           >
-            <Icon className="w-6 h-6" />
+            <Icon className="w-5 h-5" />
           </a>
         )
       })}
-      <div className="w-px h-28 bg-electric-violet/30 mx-auto mt-2" />
+      <div className="w-px h-20 bg-electric-violet/30 mx-auto mt-1" />
     </aside>
   )
 }

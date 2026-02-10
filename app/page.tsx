@@ -5,6 +5,7 @@ import { HeroSection } from "@/components/hero-section"
 import { TrustSection } from "@/components/trust-section"
 import { ServicesSection } from "@/components/services-section"
 import { ProductsSection } from "@/components/products-section"
+import { IndustriesSection } from "@/components/industries-section"
 import { WhyPermusSection } from "@/components/why-permus-section"
 import { AboutSection } from "@/components/about-section"
 import { CTASection } from "@/components/cta-section"
@@ -25,6 +26,7 @@ export default function HomePage() {
       <TrustSection />
       <ServicesSection />
       <ProductsSection />
+      <IndustriesSection />
       <WhyPermusSection />
       <AboutSection />
       <CTASection />
