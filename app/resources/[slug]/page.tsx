@@ -27,12 +27,12 @@ export async function generateMetadata({ params }: BlogDetailPageProps): Promise
   
   if (!post) {
     return {
-      title: "Article Not Found | Permus Resources",
+      title: "Article Not Found | Permus Blogs",
     }
   }
 
   return {
-    title: `${post.title} | Permus Resources`,
+    title: `${post.title} | Permus Blogs`,
     description: post.excerpt,
     openGraph: {
       title: post.title,

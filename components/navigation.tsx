@@ -12,7 +12,7 @@ const navLinks = [
   { href: "/services", label: "Services" },
   { href: "/products", label: "Products" },
   { href: "/about", label: "About Us" },
-  { href: "/resources", label: "Resources" },
+  { href: "/resources", label: "Blogs" },
   { href: "/contact", label: "Contact" },
 ]
 
@@ -43,7 +43,7 @@ export function Navigation() {
             alt="Permus"
             width={72}
             height={72}
-            className="w-35"
+            className={cn("w-auto transition-all duration-300", isScrolled ? "h-10" : "h-14")}
             priority
           />
         </Link>
@@ -62,13 +62,30 @@ export function Navigation() {
           ))}
         </nav>
 
-        {/* CTA Button */}
-        <div className="hidden lg:block">
+        {/* CTA + Powered by */}
+        <div className="hidden lg:flex items-center gap-6">
           <Button
-            className="bg-electric-violet hover:bg-electric-violet/90 text-primary-foreground px-6 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-[0_0_30px_rgba(91,33,255,0.4)]"
+            variant="default"
+            className="px-6 py-2 rounded-lg hover:shadow-[0_0_30px_rgba(134,233,255,0.35)]"
           >
             Book a Demo
           </Button>
+          <a
+            href="https://pilli.ae"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-xs text-interface-grey/60 hover:text-data-cyan transition-colors"
+            aria-label="Powered by Pill"
+          >
+            <span className="uppercase tracking-widest">Powered by</span>
+            <Image
+              src="/pilli_logo.png"
+              alt="Pill"
+              width={56}
+              height={24}
+              className="h-5 w-auto"
+            />
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -101,7 +118,8 @@ export function Navigation() {
             </Link>
           ))}
           <Button
-            className="mt-4 bg-electric-violet hover:bg-electric-violet/90 text-primary-foreground px-6 py-2 rounded-lg font-medium w-full"
+            variant="default"
+            className="mt-4 px-6 py-2 rounded-lg w-full"
           >
             Book a Demo
           </Button>

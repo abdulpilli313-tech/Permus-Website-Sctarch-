@@ -287,6 +287,17 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Hide scrollbars for custom horizontal tracks */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+  height: 0;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

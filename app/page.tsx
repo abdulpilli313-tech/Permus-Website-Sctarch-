@@ -7,6 +7,7 @@ import { ServicesSection } from "@/components/services-section"
 import { ProductsSection } from "@/components/products-section"
 import { IndustriesSection } from "@/components/industries-section"
 import { WhyPermusSection } from "@/components/why-permus-section"
+import { WhyPermusStats } from "@/components/why-permus-stats"
 import { AboutSection } from "@/components/about-section"
 import { FAQSection } from "@/components/faq-section"
 import { CTASection } from "@/components/cta-section"
@@ -29,6 +30,7 @@ export default function HomePage() {
       <ProductsSection />
       <IndustriesSection />
       <WhyPermusSection />
+      <WhyPermusStats />
       <AboutSection />
       <FAQSection />
       <CTASection />

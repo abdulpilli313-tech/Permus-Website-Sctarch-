@@ -7,7 +7,7 @@ const socialLinks = [
   { icon: ({ className }: { className?: string }) => (
     <svg
       viewBox="0 0 24 24"
-      className={["w-6 h-6", className].filter(Boolean).join(" ")}
+      className={["size-5", className].filter(Boolean).join(" ")}
       fill="currentColor"
       aria-hidden="true"
     >
@@ -17,7 +17,7 @@ const socialLinks = [
   { icon: ({ className }: { className?: string }) => (
     <svg
       viewBox="0 0 24 24"
-      className={["w-6 h-6", className].filter(Boolean).join(" ")}
+      className={["size-5", className].filter(Boolean).join(" ")}
       fill="currentColor"
       aria-hidden="true"
     >
@@ -44,7 +44,7 @@ export function SocialSidebar() {
             className="text-interface-grey/60 hover:text-data-cyan transition-all duration-300 hover:shadow-[0_0_18px_rgba(134,233,255,0.35)] rounded-full p-2"
             aria-label={link.label}
           >
-            <Icon className="w-5 h-5" />
+            <Icon className="size-5" />
           </a>
         )
       })}

@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { BookDemoModal } from "@/components/book-demo-modal"
 
@@ -26,7 +27,7 @@ function ParticleField() {
       color: string
     }> = []
 
-    const colors = ["#5B21FF", "#86E9FF", "#A7A1FF", "#FF31B0"]
+    const colors = ["#5B21FF", "#26148C", "#86E9FF", "#A7A1FF", "#FF31B0"]
 
     const resize = () => {
       canvas.width = window.innerWidth
@@ -127,76 +128,97 @@ export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated background */}
-      <div className="absolute inset-0 bg-midnight-navy">
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage:
+            "radial-gradient(60% 60% at 12% 18%, #86E9FF 0%, rgba(134, 233, 255, 0) 55%), radial-gradient(70% 70% at 20% 80%, #A7A1FF 0%, rgba(167, 161, 255, 0) 60%), radial-gradient(80% 80% at 55% 35%, #5B21FF 0%, rgba(91, 33, 255, 0) 65%), linear-gradient(135deg, #26148C 0%, #5B21FF 35%, #0D1433 100%)",
+        }}
+      >
+        {/* Gradient wash overlay */}
+        <div className="absolute inset-0 opacity-70 bg-gradient-to-br from-core-violet/40 via-transparent to-midnight-navy/80" />
+
+        {/* Gradient sweep */}
+        <div className="absolute -top-32 left-1/2 h-[420px] w-[120%] -translate-x-1/2 bg-gradient-to-r from-electric-violet/25 via-data-cyan/25 to-electric-magenta/25 blur-[140px] animate-gradient" />
+
         {/* Gradient orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-electric-violet/20 rounded-full blur-[120px] animate-pulse-glow" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-data-cyan/15 rounded-full blur-[100px] animate-pulse-glow" style={{ animationDelay: "2s" }} />
-        <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-muted-lavender/10 rounded-full blur-[80px] animate-pulse-glow" style={{ animationDelay: "4s" }} />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-electric-violet/18 rounded-full blur-[120px] animate-pulse-glow" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-data-cyan/18 rounded-full blur-[100px] animate-pulse-glow" style={{ animationDelay: "2s" }} />
+        <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-muted-lavender/12 rounded-full blur-[80px] animate-pulse-glow" style={{ animationDelay: "4s" }} />
+        <div className="absolute bottom-12 left-1/3 w-72 h-72 bg-core-violet/20 rounded-full blur-[110px] animate-pulse-glow" style={{ animationDelay: "3s" }} />
         
         {/* Particle field */}
         <ParticleField />
         
         {/* Grid overlay */}
         <div 
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.04]"
           style={{
-            backgroundImage: `linear-gradient(rgba(91, 33, 255, 0.5) 1px, transparent 1px), 
-                              linear-gradient(90deg, rgba(91, 33, 255, 0.5) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(rgba(134, 233, 255, 0.35) 1px, transparent 1px), 
+                              linear-gradient(90deg, rgba(91, 33, 255, 0.35) 1px, transparent 1px)`,
             backgroundSize: "50px 50px",
           }}
         />
       </div>
 
+      {/* Glass ball asset */}
+      <div className="pointer-events-none absolute right-[-6%] top-[56%] z-[1] hidden w-[380px] -translate-y-1/2 sm:block md:right-[-4%] md:w-[480px] lg:right-[-2%] lg:w-[600px] xl:w-[680px]">
+        <div className="absolute inset-0 rounded-full blur-[24px] bg-gradient-to-r from-electric-violet/20 via-data-cyan/20 to-electric-magenta/20 animate-pulse-glow" />
+        <Image
+          src="/elements/glass_ball.svg"
+          alt=""
+          width={680}
+          height={680}
+          className="h-auto w-full opacity-90 animate-float"
+          priority
+        />
+      </div>
+
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 pt-24 pb-16">
-        <div className="glass max-w-4xl mx-auto rounded-3xl p-8 md:p-12 lg:p-16 text-center">
+        <div className="max-w-3xl text-left">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 glass-card rounded-full px-4 py-2 mb-8">
+          <div className="inline-flex items-center gap-2 rounded-full border border-electric-violet/30 bg-midnight-navy/40 px-4 py-2 mb-8 backdrop-blur-sm">
             <span className="w-2 h-2 rounded-full bg-data-cyan animate-pulse" />
             <span className="text-sm font-medium text-data-cyan">Dubai-based Enterprise Solutions</span>
           </div>
 
           {/* Headline */}
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-interface-grey mb-6 leading-tight text-balance">
-            Engineering{" "}
-            <span className="bg-gradient-to-r from-electric-violet via-data-cyan to-muted-lavender bg-clip-text text-transparent animate-gradient">
-              Intelligent
-            </span>{" "}
-            Digital Futures
+          <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-interface-grey mb-6 leading-tight text-balance">
+            <span className="block font-normal">Engineering</span>
+            <span className="block font-normal">Intelligent</span>
+            <span className="block">Digital Futures</span>
           </h1>
 
           {/* Subtext */}
-          <p className="text-lg md:text-xl text-interface-grey/70 max-w-2xl mx-auto mb-10 leading-relaxed text-pretty">
+          <p className="text-lg md:text-xl text-interface-grey/70 max-w-xl mb-10 leading-relaxed text-pretty">
             Enterprise AI solutions, digital transformation, and scalable software products built in Dubai.
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button
-              size="lg"
-              className="bg-electric-violet hover:bg-electric-violet/90 text-primary-foreground px-8 py-6 rounded-lg text-base font-medium transition-all duration-300 hover:shadow-[0_0_40px_rgba(91,33,255,0.5)] w-full sm:w-auto"
-              onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
-            >
-              Explore Our Solutions
-            </Button>
+          <div className="flex flex-col sm:flex-row items-start gap-4">
             <Button
               size="lg"
               variant="outline"
-              className="bg-transparent border-electric-violet/40 text-interface-grey hover:bg-electric-violet/10 hover:border-electric-violet px-8 py-6 rounded-lg text-base font-medium transition-all duration-300 w-full sm:w-auto"
+              className="border-interface-grey/40 bg-transparent text-interface-grey hover:text-data-cyan hover:border-data-cyan/60 hover:bg-interface-grey/10 px-8 py-6 rounded-full text-base font-medium transition-all duration-300 w-full sm:w-auto"
               onClick={() => setIsModalOpen(true)}
             >
               Book a Demo
             </Button>
+            <Button
+              size="lg"
+              className="group bg-interface-grey/10 text-interface-grey hover:text-data-cyan px-8 py-6 rounded-full text-base font-medium transition-all duration-300 hover:bg-interface-grey/15 w-full sm:w-auto relative overflow-hidden"
+              onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
+            >
+              <span className="relative z-10">View products</span>
+              <span className="ml-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-electric-violet text-interface-grey transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
+              <span className="absolute inset-0 rounded-full border border-interface-grey/20" />
+            </Button>
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-          <span className="text-xs text-interface-grey/50 tracking-widest uppercase">Scroll</span>
-          <div className="w-6 h-10 rounded-full border border-electric-violet/30 flex items-start justify-center p-2">
-            <div className="w-1 h-2 bg-electric-violet rounded-full animate-bounce" />
-          </div>
-        </div>
       </div>
 
       <BookDemoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />

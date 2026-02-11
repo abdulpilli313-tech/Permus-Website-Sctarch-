@@ -29,6 +29,7 @@ const industries = [
 
 export function IndustriesSection() {
   const sectionRef = useRef<HTMLDivElement | null>(null)
+  const trackRef = useRef<HTMLDivElement | null>(null)
   const [animate, setAnimate] = useState(false)
   const [reduceMotion, setReduceMotion] = useState(false)
 
@@ -60,37 +61,48 @@ export function IndustriesSection() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[520px] h-[520px] bg-electric-violet/10 rounded-full blur-[160px]" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-10">
-          <span className="inline-block text-data-cyan text-sm font-semibold tracking-wider uppercase mb-4">
-            Industries We Empower
-          </span>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-interface-grey mb-5 text-balance">
-            Trusted Across Critical Sectors
-          </h2>
-          <p className="text-lg text-interface-grey/70 leading-relaxed text-pretty">
-            From regulated industries to fast-scaling enterprises, we deliver systems that power operations and innovation.
-          </p>
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
+          <div>
+            <span className="inline-block text-data-cyan text-sm font-semibold tracking-wider uppercase mb-4">
+              Our Solutions
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-interface-grey text-balance">
+              Industries
+            </h2>
+          </div>
+          <button
+            type="button"
+            onClick={() => {
+              trackRef.current?.scrollBy({ left: 260, behavior: reduceMotion ? "auto" : "smooth" })
+            }}
+            className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-electric-violet text-interface-grey shadow-[0_0_24px_rgba(91,33,255,0.45)] hover:shadow-[0_0_30px_rgba(91,33,255,0.6)] transition-all"
+            aria-label="Scroll industries"
+          >
+            →
+          </button>
         </div>
 
         <div
-          className={`grid sm:grid-cols-2 lg:grid-cols-5 gap-6 ${animate && !reduceMotion ? "animate-stripe-sweep" : ""}`}
+          ref={trackRef}
+          className={`flex items-center gap-8 overflow-x-auto pb-2 scrollbar-hide ${animate && !reduceMotion ? "animate-stripe-sweep" : ""}`}
+          style={{ scrollSnapType: "x mandatory", scrollbarWidth: "none" }}
         >
           {industries.map((industry, index) => {
             const Icon = industry.icon
             return (
               <div
                 key={industry.title}
-                className="glass-card rounded-2xl px-6 py-5 border border-electric-violet/20 transition-all duration-300 ease-out hover:translate-y-[-2px] hover:border-electric-violet/40 animate-slide-in"
-                style={{ animationDelay: `${index * 50}ms` }}
+                className="flex flex-col items-center min-w-[180px] animate-slide-in"
+                style={{ animationDelay: `${index * 50}ms`, scrollSnapAlign: "start" }}
               >
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-electric-violet/15 flex items-center justify-center">
-                    <Icon className="w-6 h-6 text-data-cyan" />
+                <div className="rounded-full p-[1px] bg-gradient-to-br from-electric-violet via-data-cyan to-muted-lavender">
+                  <div className="w-32 h-32 rounded-full bg-midnight-navy/80 border border-white/10 flex items-center justify-center">
+                    <Icon className="w-10 h-10 text-interface-grey" />
                   </div>
-                  <span className="text-interface-grey text-lg font-medium">
-                    {industry.title}
-                  </span>
                 </div>
+                <span className="mt-4 text-sm uppercase tracking-[0.2em] text-interface-grey/70">
+                  {industry.title}
+                </span>
               </div>
             )
           })}

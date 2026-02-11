@@ -129,7 +129,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-serif font-semibold text-interface-grey mb-4">Resources</h4>
+            <h4 className="font-serif font-semibold text-interface-grey mb-4">Blogs</h4>
             <ul className="space-y-3">
               {footerLinks.resources.map((link) => (
                 <li key={link.href}>

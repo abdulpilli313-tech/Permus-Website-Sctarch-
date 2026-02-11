@@ -41,18 +41,24 @@ export function FAQSection() {
 
   return (
     <section className="relative py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-midnight-navy via-core-violet/10 to-midnight-navy" />
-      <div className="absolute top-0 right-0 w-[520px] h-[520px] bg-electric-violet/10 rounded-full blur-[180px]" />
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage:
+            "radial-gradient(60% 60% at 10% 18%, #86E9FF 0%, rgba(134, 233, 255, 0) 55%), radial-gradient(70% 70% at 20% 82%, #A7A1FF 0%, rgba(167, 161, 255, 0) 60%), radial-gradient(80% 80% at 55% 35%, #5B21FF 0%, rgba(91, 33, 255, 0) 65%), linear-gradient(135deg, #26148C 0%, #5B21FF 35%, #0D1433 100%)",
+        }}
+      />
+      <div className="absolute inset-0 opacity-35 bg-gradient-to-br from-transparent via-white/20 to-midnight-navy/15" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="inline-flex items-center gap-2 text-data-cyan text-sm font-semibold tracking-wider uppercase mb-4">
+        <div className="max-w-3xl mb-12">
+          <span className="inline-flex items-center gap-2 text-interface-grey text-sm font-semibold tracking-wider uppercase mb-4">
             FAQs
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-interface-grey mb-6 text-balance">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold text-interface-grey mb-6 text-balance tracking-tight">
             Frequently Asked Questions
           </h2>
-          <p className="text-lg text-interface-grey/70 leading-relaxed text-pretty">
+          <p className="text-lg text-interface-grey/80 leading-relaxed text-pretty">
             Clear answers to the most common questions about our enterprise AI,
             product engineering, and transformation services.
           </p>
@@ -69,7 +75,7 @@ export function FAQSection() {
                   return (
                     <div
                       key={faq.question}
-                      className="glass-card rounded-2xl p-6 border border-electric-violet/20 transition-all duration-300"
+                      className="rounded-2xl p-6 border border-white/20 bg-white/10 backdrop-blur-xl shadow-[0_18px_40px_rgba(13,20,51,0.18)] transition-all duration-300 hover:border-white/35 hover:shadow-[0_22px_50px_rgba(13,20,51,0.24)]"
                     >
                       <button
                         type="button"
@@ -80,7 +86,7 @@ export function FAQSection() {
                         <span className="text-interface-grey text-base md:text-lg font-medium">
                           {faq.question}
                         </span>
-                        <span className="w-9 h-9 rounded-full bg-electric-violet/15 flex items-center justify-center text-data-cyan">
+                        <span className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-interface-grey">
                           {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                         </span>
                       </button>
@@ -90,7 +96,7 @@ export function FAQSection() {
                         }`}
                       >
                         <div className="overflow-hidden">
-                          <p className="text-interface-grey/70 leading-relaxed">
+                          <p className="text-interface-grey/80 leading-relaxed">
                             {faq.answer}
                           </p>
                         </div>
