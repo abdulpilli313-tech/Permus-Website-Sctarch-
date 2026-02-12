@@ -58,10 +58,10 @@ export function ServicesSection() {
         <div className="grid lg:grid-cols-[1.05fr_1.35fr] gap-12 lg:gap-16 items-start">
           <div>
             <span className="inline-flex items-center gap-2 text-data-cyan text-sm font-semibold tracking-wider uppercase mb-5">
-              Our Services
+              Our Solutions
             </span>
             <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-interface-grey mb-6 text-balance">
-              Our Services
+              Our Solutions
             </h2>
             <p className="text-base md:text-lg text-interface-grey/70 leading-relaxed max-w-md">
               Focused expertise across AI, transformation, and enterprise software delivery.

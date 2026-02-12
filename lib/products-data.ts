@@ -42,102 +42,6 @@ export interface Product {
 
 export const products: Product[] = [
   {
-    slug: "myndlab",
-    name: "MyndLab",
-    tagline: "AI-Powered Decision Intelligence",
-    description: "Transform enterprise decision-making with predictive analytics and machine learning insights.",
-    color: "#5B21FF",
-    accentColor: "#86E9FF",
-    heroDescription: "MyndLab harnesses the power of advanced AI to transform how enterprises make critical decisions. From predictive analytics to real-time insights, empower your organization with intelligence that drives results.",
-    whatItDoes: {
-      purpose: "MyndLab is an enterprise AI platform that transforms raw data into actionable intelligence, enabling organizations to make faster, more accurate decisions across all business functions.",
-      problem: "Organizations struggle with data silos, slow decision cycles, and the inability to leverage their data assets effectively. Traditional analytics tools lack the predictive capabilities needed in today's fast-paced business environment.",
-      audience: "Enterprise leaders, data teams, operations managers, and C-suite executives who need to transform their organization's decision-making capabilities at scale."
-    },
-    howItWorks: [
-      {
-        step: 1,
-        title: "Data Integration",
-        description: "Connect your existing data sources through secure APIs and automated pipelines. MyndLab ingests structured and unstructured data from across your enterprise."
-      },
-      {
-        step: 2,
-        title: "AI Processing",
-        description: "Our proprietary ML models analyze patterns, detect anomalies, and generate predictive insights tailored to your business context."
-      },
-      {
-        step: 3,
-        title: "Insight Delivery",
-        description: "Receive actionable recommendations through intuitive dashboards, automated reports, and real-time alerts integrated with your workflow."
-      },
-      {
-        step: 4,
-        title: "Continuous Learning",
-        description: "The platform continuously learns from outcomes, improving prediction accuracy and adapting to changing business conditions."
-      }
-    ],
-    features: [
-      {
-        title: "Predictive Analytics",
-        description: "Forecast trends, demand patterns, and business outcomes with enterprise-grade ML models.",
-        icon: "chart"
-      },
-      {
-        title: "Natural Language Queries",
-        description: "Ask questions in plain English and receive instant insights without technical expertise.",
-        icon: "message"
-      },
-      {
-        title: "Automated Anomaly Detection",
-        description: "Identify risks and opportunities before they impact your business with real-time monitoring.",
-        icon: "alert"
-      },
-      {
-        title: "Enterprise Security",
-        description: "SOC 2 Type II compliant with end-to-end encryption and role-based access controls.",
-        icon: "shield"
-      },
-      {
-        title: "Seamless Integrations",
-        description: "Connect with 200+ enterprise tools including Salesforce, SAP, and Microsoft 365.",
-        icon: "link"
-      },
-      {
-        title: "Custom Model Training",
-        description: "Build and deploy custom ML models specific to your industry and use cases.",
-        icon: "cpu"
-      }
-    ],
-    useCases: [
-      {
-        industry: "Financial Services",
-        application: "Risk Assessment & Fraud Detection",
-        impact: "60% faster fraud detection with 99.2% accuracy"
-      },
-      {
-        industry: "Healthcare",
-        application: "Patient Outcome Prediction",
-        impact: "35% improvement in treatment planning efficiency"
-      },
-      {
-        industry: "Manufacturing",
-        application: "Predictive Maintenance",
-        impact: "45% reduction in unplanned downtime"
-      },
-      {
-        industry: "Retail",
-        application: "Demand Forecasting",
-        impact: "28% improvement in inventory optimization"
-      }
-    ],
-    techStack: {
-      ai: ["TensorFlow", "PyTorch", "OpenAI GPT", "Custom ML Models"],
-      backend: ["Python", "Node.js", "PostgreSQL", "Redis"],
-      frontend: ["React", "Next.js", "TypeScript", "D3.js"],
-      cloud: ["AWS", "Kubernetes", "Docker", "Terraform"]
-    }
-  },
-  {
     slug: "assetgo",
     name: "AssetGo",
     tagline: "Intelligent Asset Management",
@@ -231,6 +135,102 @@ export const products: Product[] = [
       backend: ["Go", "Python", "TimescaleDB", "Apache Kafka"],
       frontend: ["React", "React Native", "TypeScript", "Mapbox"],
       cloud: ["Azure", "Kubernetes", "IoT Hub", "Event Grid"]
+    }
+  },
+  {
+    slug: "myndlab",
+    name: "MyndLab",
+    tagline: "AI-Powered Decision Intelligence",
+    description: "Transform enterprise decision-making with predictive analytics and machine learning insights.",
+    color: "#5B21FF",
+    accentColor: "#86E9FF",
+    heroDescription: "MyndLab harnesses the power of advanced AI to transform how enterprises make critical decisions. From predictive analytics to real-time insights, empower your organization with intelligence that drives results.",
+    whatItDoes: {
+      purpose: "MyndLab is an enterprise AI platform that transforms raw data into actionable intelligence, enabling organizations to make faster, more accurate decisions across all business functions.",
+      problem: "Organizations struggle with data silos, slow decision cycles, and the inability to leverage their data assets effectively. Traditional analytics tools lack the predictive capabilities needed in today's fast-paced business environment.",
+      audience: "Enterprise leaders, data teams, operations managers, and C-suite executives who need to transform their organization's decision-making capabilities at scale."
+    },
+    howItWorks: [
+      {
+        step: 1,
+        title: "Data Integration",
+        description: "Connect your existing data sources through secure APIs and automated pipelines. MyndLab ingests structured and unstructured data from across your enterprise."
+      },
+      {
+        step: 2,
+        title: "AI Processing",
+        description: "Our proprietary ML models analyze patterns, detect anomalies, and generate predictive insights tailored to your business context."
+      },
+      {
+        step: 3,
+        title: "Insight Delivery",
+        description: "Receive actionable recommendations through intuitive dashboards, automated reports, and real-time alerts integrated with your workflow."
+      },
+      {
+        step: 4,
+        title: "Continuous Learning",
+        description: "The platform continuously learns from outcomes, improving prediction accuracy and adapting to changing business conditions."
+      }
+    ],
+    features: [
+      {
+        title: "Predictive Analytics",
+        description: "Forecast trends, demand patterns, and business outcomes with enterprise-grade ML models.",
+        icon: "chart"
+      },
+      {
+        title: "Natural Language Queries",
+        description: "Ask questions in plain English and receive instant insights without technical expertise.",
+        icon: "message"
+      },
+      {
+        title: "Automated Anomaly Detection",
+        description: "Identify risks and opportunities before they impact your business with real-time monitoring.",
+        icon: "alert"
+      },
+      {
+        title: "Enterprise Security",
+        description: "SOC 2 Type II compliant with end-to-end encryption and role-based access controls.",
+        icon: "shield"
+      },
+      {
+        title: "Seamless Integrations",
+        description: "Connect with 200+ enterprise tools including Salesforce, SAP, and Microsoft 365.",
+        icon: "link"
+      },
+      {
+        title: "Custom Model Training",
+        description: "Build and deploy custom ML models specific to your industry and use cases.",
+        icon: "cpu"
+      }
+    ],
+    useCases: [
+      {
+        industry: "Financial Services",
+        application: "Risk Assessment & Fraud Detection",
+        impact: "60% faster fraud detection with 99.2% accuracy"
+      },
+      {
+        industry: "Healthcare",
+        application: "Patient Outcome Prediction",
+        impact: "35% improvement in treatment planning efficiency"
+      },
+      {
+        industry: "Manufacturing",
+        application: "Predictive Maintenance",
+        impact: "45% reduction in unplanned downtime"
+      },
+      {
+        industry: "Retail",
+        application: "Demand Forecasting",
+        impact: "28% improvement in inventory optimization"
+      }
+    ],
+    techStack: {
+      ai: ["TensorFlow", "PyTorch", "OpenAI GPT", "Custom ML Models"],
+      backend: ["Python", "Node.js", "PostgreSQL", "Redis"],
+      frontend: ["React", "Next.js", "TypeScript", "D3.js"],
+      cloud: ["AWS", "Kubernetes", "Docker", "Terraform"]
     }
   },
   {

@@ -8,6 +8,7 @@ import { ProductPhilosophy } from "@/components/products/product-philosophy"
 import { ProductComparison } from "@/components/products/product-comparison"
 import { FutureProducts } from "@/components/products/future-products"
 import { ProductsCTA } from "@/components/products/products-cta"
+import { CTASection } from "@/components/cta-section"
 
 export const metadata: Metadata = {
   title: "Products | Permus Software House - Enterprise AI Platforms",
@@ -39,6 +40,7 @@ export default function ProductsPage() {
       
       {/* Final CTA */}
       <ProductsCTA />
+      <CTASection/>
       
       <Footer />
     </main>

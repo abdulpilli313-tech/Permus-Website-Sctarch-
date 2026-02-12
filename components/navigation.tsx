@@ -3,13 +3,14 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
+  { href: "/services", label: "Solutions" },
   { href: "/products", label: "Products" },
   { href: "/about", label: "About Us" },
   { href: "/resources", label: "Blogs" },
@@ -17,6 +18,7 @@ const navLinks = [
 ]
 
 export function Navigation() {
+  const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
@@ -54,10 +56,18 @@ export function Navigation() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-interface-grey/80 hover:text-data-cyan transition-colors duration-200 relative group"
+              className={cn(
+                "text-sm font-medium text-interface-grey/80 hover:text-data-cyan transition-colors duration-200 relative group",
+                pathname === link.href && "text-data-cyan"
+              )}
             >
               {link.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-electric-violet group-hover:w-full transition-all duration-300" />
+              <span
+                className={cn(
+                  "absolute -bottom-1 left-0 h-0.5 bg-electric-violet transition-all duration-300",
+                  pathname === link.href ? "w-full" : "w-0 group-hover:w-full"
+                )}
+              />
             </Link>
           ))}
         </nav>
@@ -66,9 +76,12 @@ export function Navigation() {
         <div className="hidden lg:flex items-center gap-6">
           <Button
             variant="default"
-            className="px-6 py-2 rounded-lg hover:shadow-[0_0_30px_rgba(134,233,255,0.35)]"
+            className="group px-6 py-2 rounded-full bg-white/10 border border-white/20 text-interface-grey hover:text-data-cyan hover:bg-white/15 hover:shadow-[0_0_30px_rgba(134,233,255,0.35)]"
           >
-            Book a Demo
+            <span>Request a demo</span>
+            <span className="ml-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-electric-violet text-interface-grey transition-transform duration-300 group-hover:translate-x-1">
+              →
+            </span>
           </Button>
           <a
             href="https://pilli.ae"
@@ -111,7 +124,10 @@ export function Navigation() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-base font-medium text-interface-grey/80 hover:text-data-cyan transition-colors duration-200 py-2"
+              className={cn(
+                "text-base font-medium text-interface-grey/80 hover:text-data-cyan transition-colors duration-200 py-2",
+                pathname === link.href && "text-data-cyan"
+              )}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {link.label}
@@ -119,9 +135,12 @@ export function Navigation() {
           ))}
           <Button
             variant="default"
-            className="mt-4 px-6 py-2 rounded-lg w-full"
+            className="mt-4 group w-full px-6 py-2 rounded-full bg-white/10 border border-white/20 text-interface-grey hover:text-data-cyan hover:bg-white/15"
           >
-            Book a Demo
+            <span>Request a demo</span>
+            <span className="ml-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-electric-violet text-interface-grey transition-transform duration-300 group-hover:translate-x-1">
+              →
+            </span>
           </Button>
         </nav>
       </div>

@@ -14,26 +14,28 @@ const faqs = [
     answer:
       "We deliver across regulated and high‑growth sectors including finance, healthcare, logistics, manufacturing, government, retail, and enterprise SaaS.",
   },
-  {
-    question: "Do you build custom AI solutions or use off‑the‑shelf tools?",
-    answer:
-      "We design custom AI systems when differentiation matters and integrate proven platforms when speed is critical. The approach depends on your data maturity and business goals.",
-  },
+ 
   {
     question: "How long does a typical enterprise project take?",
     answer:
       "Timelines vary by scope. We usually deliver an initial production‑ready release within 8–12 weeks, then scale through iterative phases.",
   },
   {
-    question: "Can you work with our existing teams and infrastructure?",
-    answer:
-      "Yes. We integrate with internal teams, cloud providers, and legacy systems while maintaining security, compliance, and performance standards.",
-  },
-  {
     question: "What support is included after launch?",
     answer:
       "We provide monitoring, optimization, and roadmap support with optional managed services, ensuring continuous reliability and performance.",
   },
+  {
+    question: "Can you work with our existing teams and infrastructure?",
+    answer:
+      "Yes. We integrate with internal teams, cloud providers, and legacy systems while maintaining security, compliance, and performance standards.",
+  },
+   {
+    question: "Do you build custom AI solutions or use off‑the‑shelf tools?",
+    answer:
+      "We design custom AI systems when differentiation matters and integrate proven platforms when speed is critical. The approach depends on your data maturity and business goals.",
+  },
+  
 ]
 
 export function FAQSection() {

@@ -147,7 +147,6 @@ export function Footer() {
 
         {/* Subscribe panel */}
         <div className="relative mt-6 px-4 md:px-6 pt-4 pb-3 rounded-3xl">
-          <div className="absolute inset-0 rounded-3xl border border-electric-violet/20 pointer-events-none" />
           <div className="absolute inset-0 rounded-3xl neon-sweep" />
           <div className="relative grid lg:grid-cols-[1.1fr_1fr] gap-10 items-start">
             <div>

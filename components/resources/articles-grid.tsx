@@ -40,16 +40,13 @@ export function ArticlesGrid({ posts }: ArticlesGridProps) {
         <div className="max-w-6xl mx-auto">
           {/* Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {gridPosts.map((post, index) => {
-              const isFeature = index % 5 === 0
+            {gridPosts.map((post) => {
               return (
                 <Link key={post.slug} href={`/resources/${post.slug}`} className="group">
                   <article
-                    className={`h-full rounded-2xl border border-electric-violet/30 bg-gradient-to-b from-midnight-navy to-core-violet backdrop-blur-xl transition-all duration-300 hover:border-electric-violet/50 hover:translate-y-[-4px] hover:shadow-[0_22px_60px_rgba(13,20,51,0.4)] flex flex-col ${
-                      isFeature ? "lg:row-span-2" : ""
-                    }`}
+                    className="h-full rounded-2xl border border-electric-violet/30 bg-gradient-to-b from-midnight-navy to-core-violet backdrop-blur-xl transition-all duration-300 hover:border-electric-violet/50 hover:translate-y-[-4px] hover:shadow-[0_22px_60px_rgba(13,20,51,0.4)] flex flex-col"
                   >
-                    <div className={`relative ${isFeature ? "h-64" : "h-48"} rounded-t-2xl overflow-hidden border-b border-white/10`}>
+                    <div className="relative h-52 rounded-t-2xl overflow-hidden border-b border-white/10">
                       <div className="absolute inset-0 bg-gradient-to-br from-electric-violet/50 via-data-cyan/30 to-midnight-navy" />
                       <div className="absolute inset-0 opacity-40 bg-gradient-to-tr from-transparent via-white/10 to-midnight-navy/30" />
                     </div>

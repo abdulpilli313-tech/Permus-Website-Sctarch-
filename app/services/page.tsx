@@ -8,6 +8,7 @@ import { ServicesOverview } from "@/components/services/services-overview"
 import { DeliveryProcess } from "@/components/services/delivery-process"
 import { TechStack } from "@/components/services/tech-stack"
 import { ServicesCTA } from "@/components/services/services-cta"
+import { CTASection } from "@/components/cta-section"
 
 export const metadata: Metadata = {
   title: "Enterprise Technology Services | Permus Software House",
@@ -34,6 +35,8 @@ export default function ServicesPage() {
       <DeliveryProcess />
       <TechStack />
       <ServicesCTA />
+      <CTASection/>
+
       
       <Footer />
     </main>

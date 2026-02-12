@@ -2,7 +2,7 @@
 
 export function ResourcesHero() {
   return (
-    <section className="relative min-h-[55vh] flex items-center overflow-hidden pt-24 pb-16">
+    <section className="relative min-h-[55vh] flex items-center overflow-hidden pt-28 pb-16">
       {/* Editorial background */}
       <div
         className="absolute inset-0"
@@ -19,11 +19,11 @@ export function ResourcesHero() {
           <div className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-semibold text-interface-grey mb-6">
             Permus Blog
           </div>
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold text-interface-grey leading-tight text-balance">
+          <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-interface-grey leading-tight text-balance">
             Insights on AI, Enterprise Software & Digital Transformation
           </h1>
           <div className="mt-5 h-px w-24 bg-gradient-to-r from-data-cyan via-muted-lavender to-transparent" />
-          <p className="mt-6 text-lg md:text-xl text-interface-grey/75 max-w-2xl leading-relaxed">
+          <p className="mt-6 text-base md:text-lg text-interface-grey/75 max-w-2xl leading-relaxed">
             Expert perspectives, technical insights, and industry knowledge from the Permus team.
           </p>
         </div>
