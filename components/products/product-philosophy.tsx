@@ -8,22 +8,22 @@ const philosophyPoints = [
   {
     icon: Brain,
     title: "AI-Driven Platforms",
-    description: "Every product leverages advanced machine learning and artificial intelligence to deliver intelligent automation and predictive insights."
+    description: "Advanced AI for automation and predictive insight."
   },
   {
     icon: Layers,
     title: "Enterprise Architecture",
-    description: "Built on robust, battle-tested foundations that handle millions of transactions while maintaining security and compliance."
+    description: "Battle-tested foundations with security at scale."
   },
   {
     icon: Maximize2,
     title: "Modular & Scalable",
-    description: "Designed as composable systems that grow with your organization, from startup to global enterprise."
+    description: "Composable systems that grow with your business."
   },
   {
     icon: TrendingUp,
     title: "Long-Term Growth",
-    description: "Products evolve continuously with regular updates, new capabilities, and expanding integrations."
+    description: "Continuous evolution with new capabilities."
   }
 ]
 
@@ -32,37 +32,34 @@ export function ProductPhilosophy() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section ref={ref} className="relative py-32 bg-midnight-navy overflow-hidden">
+    <section ref={ref} className="relative py-24 overflow-hidden bg-midnight-navy">
       {/* Background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-electric-violet/30 to-transparent" />
-        <div className="absolute top-1/2 left-0 w-[500px] h-[500px] rounded-full blur-[200px] bg-core-violet/10" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full blur-[150px] bg-electric-violet/5" />
-      </div>
+      <div className="absolute inset-0 bg-gradient-to-br from-midnight-navy via-core-violet/10 to-midnight-navy" />
+      <div className="absolute inset-0 bg-gradient-to-r from-midnight-navy/80 via-midnight-navy/40 to-transparent" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
-        >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm font-medium text-interface-grey/80 mb-6">
-            Our Philosophy
-          </span>
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-interface-grey mb-6 text-balance">
-            Products Built for the{" "}
-            <span className="text-electric-violet">Enterprise Future</span>
-          </h2>
-          <p className="text-xl text-interface-grey/60 max-w-3xl mx-auto leading-relaxed">
-            We engineer intelligent platforms that transform how organizations operate. 
-            Each product embodies our commitment to innovation, reliability, and measurable impact.
-          </p>
-        </motion.div>
+        <div className="grid lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-16 items-start">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="max-w-xl"
+          >
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/20 bg-white/5 text-xs font-semibold text-interface-grey mb-5">
+              Our Philosophy
+            </span>
+            <h2 className="font-serif text-4xl md:text-5xl font-semibold text-interface-grey mb-4 text-balance tracking-tight">
+              Products Built for the <span className="text-data-cyan">Enterprise Future</span>
+            </h2>
+            <div className="h-px w-16 bg-gradient-to-r from-data-cyan via-muted-lavender to-transparent mb-5" />
+            <p className="text-base md:text-lg text-interface-grey/70 leading-relaxed">
+              Intelligent platforms engineered for scale, reliability, and measurable impact.
+            </p>
+          </motion.div>
 
-        {/* Philosophy grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+          {/* Philosophy grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {philosophyPoints.map((point, index) => {
             const Icon = point.icon
             return (
@@ -71,17 +68,18 @@ export function ProductPhilosophy() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-                className="glass-card rounded-2xl p-8 group hover:border-electric-violet/40 transition-all duration-500"
+                className="group rounded-2xl p-5 border border-white/15 bg-white/5 backdrop-blur-md transition-all duration-300 hover:border-data-cyan/40 hover:shadow-[0_16px_40px_rgba(13,20,51,0.3)]"
               >
-                <div className="flex items-start gap-5">
-                  <div className="w-14 h-14 rounded-xl bg-electric-violet/10 flex items-center justify-center shrink-0 group-hover:bg-electric-violet/20 transition-colors">
-                    <Icon className="w-7 h-7 text-electric-violet" />
+                <div className="flex items-start gap-4">
+                  <div className="w-11 h-11 rounded-lg bg-electric-violet/15 flex items-center justify-center shrink-0 group-hover:bg-electric-violet/25 transition-colors">
+                    <Icon className="w-5 h-5 text-data-cyan" />
                   </div>
                   <div>
-                    <h3 className="font-serif text-xl font-bold text-interface-grey mb-3">
+                    <h3 className="font-serif text-base font-semibold text-interface-grey mb-2">
                       {point.title}
                     </h3>
-                    <p className="text-interface-grey/60 leading-relaxed">
+                    <div className="h-px w-10 bg-white/20 mb-2" />
+                    <p className="text-sm text-interface-grey/65 leading-relaxed">
                       {point.description}
                     </p>
                   </div>
@@ -89,6 +87,7 @@ export function ProductPhilosophy() {
               </motion.div>
             )
           })}
+          </div>
         </div>
       </div>
     </section>

@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import { Brain, Layers, Code2, Building2, ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -9,7 +8,7 @@ const services = [
     id: "ai",
     icon: Brain,
     title: "AI Solutions & Automation",
-    description: "Transform your operations with intelligent systems that learn, adapt, and drive measurable outcomes.",
+    description: "Intelligent automation and predictive insights built for scale.",
     features: [
       { title: "AI Strategy", description: "Comprehensive roadmaps aligning AI initiatives with business objectives" },
       { title: "Machine Learning Systems", description: "Custom ML models for prediction, classification, and optimization" },
@@ -22,7 +21,7 @@ const services = [
     id: "digital",
     icon: Layers,
     title: "Digital Transformation",
-    description: "Modernize your technology landscape to unlock efficiency, agility, and competitive advantage.",
+    description: "Modernize systems with cloud-native architecture and workflow speed.",
     features: [
       { title: "Legacy System Modernization", description: "Migrate and upgrade outdated systems to modern architectures" },
       { title: "Process Automation", description: "Streamline workflows and eliminate manual bottlenecks" },
@@ -35,7 +34,7 @@ const services = [
     id: "development",
     icon: Code2,
     title: "Full-Stack Development",
-    description: "Build robust, high-performance applications with modern technologies and best practices.",
+    description: "Product-grade web and mobile platforms with secure backends.",
     features: [
       { title: "Web & Mobile Applications", description: "Cross-platform solutions with exceptional user experiences" },
       { title: "API & Backend Systems", description: "Scalable, secure APIs and microservices architectures" },
@@ -48,7 +47,7 @@ const services = [
     id: "enterprise",
     icon: Building2,
     title: "Enterprise Platforms",
-    description: "Custom-built platforms that scale with your business and evolve with your needs.",
+    description: "Custom platforms that grow with your operations and teams.",
     features: [
       { title: "Custom Enterprise Systems", description: "Tailored solutions for complex business requirements" },
       { title: "Internal Tools", description: "Productivity tools that empower teams and streamline operations" },
@@ -60,100 +59,60 @@ const services = [
 ]
 
 export function ServicesOverview() {
-  const [expandedService, setExpandedService] = useState<string | null>("ai")
-
   return (
-    <section id="services-overview" className="py-24 relative">
-      <div className="container mx-auto px-6">
-        {/* Section header */}
-        <div className="text-center mb-16">
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-interface-grey mb-4">
-            Our Services
-          </h2>
-          <p className="text-interface-grey/60 max-w-2xl mx-auto">
-            Comprehensive technology solutions designed for enterprise scale and complexity.
-          </p>
-        </div>
+    <section id="services-overview" className="py-24 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-32 -right-32 h-72 w-72 rounded-full bg-electric-violet/10 blur-[120px]" />
+        <div className="absolute -bottom-32 -left-32 h-72 w-72 rounded-full bg-data-cyan/10 blur-[120px]" />
+      </div>
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-14 items-start">
+          {/* Section header */}
+          <div className="max-w-xl">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 bg-white/5 text-[11px] font-semibold tracking-[0.2em] uppercase text-interface-grey/80 mb-5">
+              Our Solutions
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-interface-grey mb-4 tracking-tight">
+              Enterprise Solutions, Refined
+            </h2>
+            <div className="h-px w-16 bg-gradient-to-r from-data-cyan via-muted-lavender to-transparent mb-5" />
+            <p className="text-interface-grey/60 text-sm sm:text-base leading-relaxed">
+              Focused capabilities across AI, transformation, engineering, and enterprise platforms — designed for clarity and scale.
+            </p>
+          </div>
 
-        {/* Service cards */}
-        <div className="grid gap-6 max-w-5xl mx-auto">
-          {services.map((service) => {
-            const Icon = service.icon
-            const isExpanded = expandedService === service.id
+          {/* Service cards */}
+          <div className="grid sm:grid-cols-2 gap-4">
+            {services.map((service) => {
+              const Icon = service.icon
 
-            return (
-              <div
-                key={service.id}
-                id={service.id}
-                className={cn(
-                  "glass-card rounded-2xl transition-all duration-500 overflow-hidden",
-                  isExpanded ? "glow-violet" : "hover:border-electric-violet/30"
-                )}
-              >
-                {/* Header */}
-                <button
-                  type="button"
-                  onClick={() => setExpandedService(isExpanded ? null : service.id)}
-                  className="w-full p-6 sm:p-8 flex items-start gap-6 text-left"
-                  aria-expanded={isExpanded}
-                >
-                  {/* Icon */}
-                  <div className={cn(
-                    "shrink-0 w-14 h-14 rounded-xl flex items-center justify-center bg-gradient-to-br",
-                    service.gradient
-                  )}>
-                    <Icon className="w-7 h-7 text-midnight-navy" />
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-interface-grey mb-2">
-                      {service.title}
-                    </h3>
-                    <p className="text-interface-grey/60 text-sm sm:text-base leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
-
-                  {/* Expand indicator */}
-                  <div className={cn(
-                    "shrink-0 w-10 h-10 rounded-full bg-electric-violet/10 flex items-center justify-center transition-transform duration-300",
-                    isExpanded && "rotate-180"
-                  )}>
-                    <ChevronDown className="w-5 h-5 text-electric-violet" />
-                  </div>
-                </button>
-
-                {/* Expandable content */}
+              return (
                 <div
-                  className={cn(
-                    "grid transition-all duration-500 ease-in-out",
-                    isExpanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-                  )}
+                  key={service.id}
+                  id={service.id}
+                  className="group rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-md p-5 transition-all duration-300 hover:border-data-cyan/30 hover:shadow-[0_12px_30px_rgba(13,20,51,0.28)]"
                 >
-                  <div className="overflow-hidden">
-                    <div className="px-6 sm:px-8 pb-8 pt-2">
-                      <div className="grid sm:grid-cols-2 gap-4">
-                        {service.features.map((feature) => (
-                          <div
-                            key={feature.title}
-                            className="p-4 rounded-xl bg-midnight-navy/40 border border-electric-violet/10 hover:border-electric-violet/20 transition-colors"
-                          >
-                            <h4 className="font-semibold text-interface-grey mb-1">
-                              {feature.title}
-                            </h4>
-                            <p className="text-sm text-interface-grey/50">
-                              {feature.description}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
+                  <div className="flex items-start gap-4">
+                    <div className={cn(
+                      "shrink-0 w-10 h-10 rounded-lg flex items-center justify-center bg-gradient-to-br",
+                      service.gradient
+                    )}>
+                      <Icon className="w-4 h-4 text-midnight-navy" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-serif text-base font-semibold text-interface-grey mb-2">
+                        {service.title}
+                      </h3>
+                      <div className="h-px w-10 bg-white/15 mb-2" />
+                      <p className="text-interface-grey/60 text-xs leading-relaxed">
+                        {service.description}
+                      </p>
                     </div>
                   </div>
                 </div>
-              </div>
-            )
-          })}
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>

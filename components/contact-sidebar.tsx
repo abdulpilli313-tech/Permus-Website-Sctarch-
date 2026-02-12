@@ -39,7 +39,6 @@ export function ContactSidebar() {
         className="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col items-center gap-4"
         aria-label="Contact options"
       >
-        <div className="w-px h-16 bg-electric-violet/30 mb-1" />
         {contactLinks.map((link) => {
           const Icon = link.icon
           return (

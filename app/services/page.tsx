@@ -34,7 +34,7 @@ export default function ServicesPage() {
       <ServicesOverview />
       <DeliveryProcess />
       <TechStack />
-      <ServicesCTA />
+      {/* <ServicesCTA /> */}
       <CTASection/>
 
       

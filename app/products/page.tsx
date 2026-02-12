@@ -33,13 +33,13 @@ export default function ProductsPage() {
       <ProductPhilosophy />
       
       {/* Product comparison snapshot */}
-      <ProductComparison />
+      {/* <ProductComparison /> */}
       
       {/* Future products teaser */}
-      <FutureProducts />
+      {/* <FutureProducts /> */}
       
       {/* Final CTA */}
-      <ProductsCTA />
+      {/* <ProductsCTA /> */}
       <CTASection/>
       
       <Footer />

@@ -48,7 +48,6 @@ export function SocialSidebar() {
           </a>
         )
       })}
-      <div className="w-px h-16 bg-electric-violet/30 mt-1" />
     </aside>
   )
 }
