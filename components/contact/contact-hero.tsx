@@ -62,26 +62,36 @@ export function ContactHero() {
   }, [])
 
   return (
-    <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-24 pb-12">
+    <section className="relative min-h-[50vh] flex items-center overflow-hidden pt-24 pb-12">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-midnight-navy via-core-violet/10 to-midnight-navy" />
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage:
+            "radial-gradient(60% 60% at 10% 18%, #86E9FF 0%, rgba(134, 233, 255, 0) 55%), radial-gradient(70% 70% at 20% 82%, #A7A1FF 0%, rgba(167, 161, 255, 0) 60%), radial-gradient(80% 80% at 55% 35%, #5B21FF 0%, rgba(91, 33, 255, 0) 65%), linear-gradient(135deg, #26148C 0%, #5B21FF 35%, #0D1433 100%)",
+        }}
+      />
+      <div className="absolute inset-0 opacity-35 bg-gradient-to-br from-transparent via-white/20 to-midnight-navy/15" />
       
       {/* Animated canvas */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 w-full h-full opacity-60"
+        className="absolute inset-0 w-full h-full opacity-50"
       />
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 text-center">
-        <div className="glass-card rounded-2xl p-8 md:p-12 max-w-3xl mx-auto">
-          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-medium bg-electric-violet/20 text-data-cyan border border-electric-violet/30 mb-6">
+      <div className="relative z-10 container mx-auto px-6">
+        <div className="max-w-3xl">
+          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-white/15 text-interface-grey border border-white/30 mb-6">
             Get in Touch
           </span>
-          <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-interface-grey mb-4 text-balance">
-            {"Let's Talk About Your Next Digital Initiative"}
+          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold text-interface-grey mb-4 text-balance tracking-tight">
+            LET{"'"}S TALK
           </h1>
-          <p className="text-interface-grey/70 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-2xl md:text-3xl text-interface-grey/90 mb-4">
+            About Your Next Digital Initiative
+          </p>
+          <p className="text-interface-grey/70 text-base md:text-lg max-w-2xl leading-relaxed">
             Connect with Permus Software House to discuss AI solutions, digital transformation, or enterprise software development.
           </p>
         </div>

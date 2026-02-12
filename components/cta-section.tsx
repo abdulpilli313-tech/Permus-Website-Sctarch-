@@ -54,7 +54,7 @@ export function CTASection() {
         className="absolute inset-0"
         style={{
           backgroundImage:
-            "radial-gradient(60% 60% at 12% 18%, #86E9FF 0%, rgba(134, 233, 255, 0) 55%), radial-gradient(70% 70% at 20% 82%, #A7A1FF 0%, rgba(167, 161, 255, 0) 60%), radial-gradient(80% 80% at 55% 35%, #5B21FF 0%, rgba(91, 33, 255, 0) 65%), linear-gradient(135deg, #26148C 0%, #5B21FF 35%, #0D1433 100%)",
+            "radial-gradient(60% 60% at 88% 18%, #86E9FF 0%, rgba(134, 233, 255, 0) 55%), radial-gradient(70% 70% at 80% 82%, #A7A1FF 0%, rgba(167, 161, 255, 0) 60%), radial-gradient(80% 80% at 45% 35%, #5B21FF 0%, rgba(91, 33, 255, 0) 65%), linear-gradient(225deg, #26148C 0%, #5B21FF 35%, #0D1433 100%)",
         }}
       />
       <div className="absolute inset-0 opacity-30 bg-gradient-to-br from-transparent via-white/20 to-midnight-navy/20" />

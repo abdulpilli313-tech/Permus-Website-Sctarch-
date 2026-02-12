@@ -8,7 +8,7 @@ import { ContactOptions } from "@/components/contact/contact-options"
 import { EnterpriseForm } from "@/components/contact/enterprise-form"
 import { WhyContact } from "@/components/contact/why-contact"
 import { LocationSection } from "@/components/contact/location-section"
-import { ContactCTA } from "@/components/contact/contact-cta"
+import { CTASection } from "@/components/cta-section"
 
 export const metadata: Metadata = {
   title: "Contact Us | Permus Software House | Dubai",
@@ -34,16 +34,16 @@ export default function ContactPage() {
       <ContactOptions />
       
       {/* Section 3: Enterprise Contact Form */}
-      <EnterpriseForm />
+      {/* <EnterpriseForm />  need to remove */}
+
+      {/* CTA Section */}
+      <CTASection />
       
       {/* Section 4: Why Contact Permus */}
       <WhyContact />
       
       {/* Section 5: Location & Presence */}
       <LocationSection />
-      
-      {/* Section 6: Final CTA */}
-      <ContactCTA />
       
       <Footer />
     </main>

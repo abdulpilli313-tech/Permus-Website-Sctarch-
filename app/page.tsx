@@ -27,13 +27,13 @@ export default function HomePage() {
       <HeroSection />
       <TrustSection />
       <ServicesSection />
-      <ProductsSection />
+      {/* <ProductsSection /> */}
       <IndustriesSection />
       <WhyPermusSection />
       <WhyPermusStats />
-      <AboutSection />
-      <FAQSection />
+      {/* <AboutSection /> */}
       <CTASection />
+      <FAQSection />
       
       {/* Footer */}
       <Footer />

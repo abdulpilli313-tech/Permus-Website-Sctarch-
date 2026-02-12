@@ -12,6 +12,7 @@ import { CategoryFilter } from "@/components/resources/category-filter"
 import { ArticlesGrid } from "@/components/resources/articles-grid"
 import { ResourcesCta } from "@/components/resources/resources-cta"
 import { getPostsByCategory, type BlogCategory } from "@/lib/blog-data"
+import { CTASection } from "@/components/cta-section"
 
 export default function ResourcesPage() {
   const [activeCategory, setActiveCategory] = useState<BlogCategory | "All">("All")
@@ -30,7 +31,9 @@ export default function ResourcesPage() {
         onCategoryChange={setActiveCategory} 
       />
       <ArticlesGrid posts={posts} />
-      <ResourcesCta />
+      {/* <ResourcesCta /> */}
+      <CTASection/>
+      
       
       <Footer />
     </main>
