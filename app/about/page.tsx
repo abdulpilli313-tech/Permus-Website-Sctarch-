@@ -11,6 +11,8 @@ import { LeadershipSection } from "@/components/about/leadership-section"
 import { HowWeOperate } from "@/components/about/how-we-operate"
 import { GlobalPresence } from "@/components/about/global-presence"
 import { AboutCta } from "@/components/about/about-cta"
+import { LocationSection } from "@/components/contact/location-section"
+import { CTASection } from "@/components/cta-section"
 
 export const metadata: Metadata = {
   title: "About Us | Permus Software House | Enterprise AI & Digital Innovation",
@@ -57,10 +59,12 @@ export default function AboutPage() {
       <HowWeOperate />
 
       {/* Section 7: Global & Local Presence */}
-      <GlobalPresence />
+      {/* <GlobalPresence /> */}
+      <LocationSection />
+      {/* <CTASection /> */}
 
       {/* Section 8: Final CTA */}
-      <AboutCta />
+      {/* <AboutCta /> */}
 
       <Footer />
     </main>

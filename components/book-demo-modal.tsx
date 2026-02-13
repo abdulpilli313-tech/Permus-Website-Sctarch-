@@ -1,13 +1,9 @@
 "use client"
 
-import React from "react"
-
-import { useState } from "react"
+import React, { useState } from "react"
 import { X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { cn } from "@/lib/utils"
+import { DemoForm, DemoFormData } from "@/components/demo-form"
+import Image from "next/image"
 
 interface BookDemoModalProps {
   isOpen: boolean
@@ -15,18 +11,11 @@ interface BookDemoModalProps {
 }
 
 export function BookDemoModal({ isOpen, onClose }: BookDemoModalProps) {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    phone: "",
-    message: "",
-  })
+  const [resetKey, setResetKey] = useState(0)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const handleSubmit = async (_data: DemoFormData) => {
     setIsSubmitting(true)
     // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1500))
@@ -34,7 +23,7 @@ export function BookDemoModal({ isOpen, onClose }: BookDemoModalProps) {
     setIsSubmitted(true)
     setTimeout(() => {
       setIsSubmitted(false)
-      setFormData({ name: "", email: "", company: "", phone: "", message: "" })
+      setResetKey((prev) => prev + 1)
       onClose()
     }, 2000)
   }
@@ -56,114 +45,59 @@ export function BookDemoModal({ isOpen, onClose }: BookDemoModalProps) {
       />
       
       {/* Modal */}
-      <div className="relative w-full max-w-lg glass-card rounded-2xl p-8 animate-in fade-in zoom-in-95 duration-300">
-        {/* Close button */}
-        <button
-          type="button"
-          onClick={onClose}
-          className="absolute top-4 right-4 text-interface-grey/60 hover:text-interface-grey transition-colors"
-          aria-label="Close modal"
-        >
-          <X size={24} />
-        </button>
+      <div className="relative w-full max-w-2xl">
+        <div className="pointer-events-none absolute -left-32 -top-20 hidden w-72 lg:block animate-float opacity-90 z-0">
+          <Image
+            src="/elements/glass_arrow.svg"
+            alt=""
+            width={288}
+            height={288}
+            className="h-auto w-full opacity-80"
+            priority
+          />
+        </div>
+        <div className="relative rounded-3xl bg-white/60 p-8 shadow-[0_28px_70px_rgba(13,20,51,0.28)] border border-white/50 backdrop-blur-3xl overflow-hidden animate-in fade-in zoom-in-95 duration-300 z-10">
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-electric-violet/15 opacity-70 z-10" />
+        <div className="relative z-20">
+          {/* Close button */}
+          <button
+            type="button"
+            onClick={onClose}
+            className="absolute top-0 right-0 text-interface-grey/60 hover:text-interface-grey transition-colors"
+            aria-label="Close modal"
+          >
+            <X size={24} />
+          </button>
 
-        {isSubmitted ? (
-          <div className="text-center py-12">
-            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-electric-violet/20 flex items-center justify-center">
-              <svg className="w-8 h-8 text-data-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
+          {isSubmitted ? (
+            <div className="text-center py-12">
+              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-electric-violet/20 flex items-center justify-center">
+                <svg className="w-8 h-8 text-data-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 className="font-serif text-2xl font-bold text-midnight-navy mb-2">Thank You!</h3>
+              <p className="text-midnight-navy/70">{"We'll be in touch shortly to schedule your demo."}</p>
             </div>
-            <h3 className="font-serif text-2xl font-bold text-interface-grey mb-2">Thank You!</h3>
-            <p className="text-interface-grey/70">{"We'll be in touch shortly to schedule your demo."}</p>
-          </div>
-        ) : (
-          <>
-            <h2 id="modal-title" className="font-serif text-2xl font-bold text-interface-grey mb-2">
-              Book a Demo
-            </h2>
-            <p className="text-interface-grey/70 mb-6">
-              Schedule a personalized demonstration of our enterprise solutions.
-            </p>
+          ) : (
+            <>
+              <h2 id="modal-title" className="font-serif text-2xl font-bold text-midnight-navy mb-2">
+                Book a Demo
+              </h2>
+              <p className="text-midnight-navy/70 mb-6">
+                Schedule a personalized demonstration of our enterprise solutions.
+              </p>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name" className="text-interface-grey/80">Full Name</Label>
-                  <Input
-                    id="name"
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="bg-midnight-navy/60 border-electric-violet/20 text-interface-grey placeholder:text-interface-grey/40 focus:border-electric-violet"
-                    placeholder="John Doe"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="text-interface-grey/80">Email</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="bg-midnight-navy/60 border-electric-violet/20 text-interface-grey placeholder:text-interface-grey/40 focus:border-electric-violet"
-                    placeholder="john@company.com"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="company" className="text-interface-grey/80">Company</Label>
-                  <Input
-                    id="company"
-                    type="text"
-                    required
-                    value={formData.company}
-                    onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    className="bg-midnight-navy/60 border-electric-violet/20 text-interface-grey placeholder:text-interface-grey/40 focus:border-electric-violet"
-                    placeholder="Company Inc."
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="phone" className="text-interface-grey/80">Phone</Label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="bg-midnight-navy/60 border-electric-violet/20 text-interface-grey placeholder:text-interface-grey/40 focus:border-electric-violet"
-                    placeholder="+971 50 123 4567"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="message" className="text-interface-grey/80">{"What's your primary interest?"}</Label>
-                <textarea
-                  id="message"
-                  rows={3}
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className={cn(
-                    "flex w-full rounded-lg border bg-midnight-navy/60 border-electric-violet/20 px-3 py-2 text-sm text-interface-grey placeholder:text-interface-grey/40 focus:outline-none focus:border-electric-violet transition-colors resize-none"
-                  )}
-                  placeholder="Tell us about your project or requirements..."
-                />
-              </div>
-
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-electric-violet hover:bg-electric-violet/90 text-primary-foreground py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-[0_0_30px_rgba(91,33,255,0.4)] disabled:opacity-50"
-              >
-                {isSubmitting ? "Submitting..." : "Request Demo"}
-              </Button>
-            </form>
-          </>
-        )}
+              <DemoForm
+                onSubmit={handleSubmit}
+                isSubmitting={isSubmitting}
+                submitLabel="Send Message"
+                resetKey={resetKey}
+              />
+            </>
+          )}
+        </div>
+        </div>
       </div>
     </div>
   )

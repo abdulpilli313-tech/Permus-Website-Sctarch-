@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { BookDemoModal } from "@/components/book-demo-modal"
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -21,6 +22,7 @@ export function Navigation() {
   const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isDemoOpen, setIsDemoOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,7 +66,7 @@ export function Navigation() {
               {link.label}
               <span
                 className={cn(
-                  "absolute -bottom-1 left-0 h-0.5 bg-electric-violet transition-all duration-300",
+                  "absolute -bottom-1 left-0 h-0.5 bg-data-cyan transition-all duration-300",
                   pathname === link.href ? "w-full" : "w-0 group-hover:w-full"
                 )}
               />
@@ -77,6 +79,8 @@ export function Navigation() {
           <Button
             variant="default"
             className="group px-6 py-2 rounded-full bg-white/10 border border-white/20 text-interface-grey hover:text-data-cyan hover:bg-white/15 hover:shadow-[0_0_30px_rgba(134,233,255,0.35)]"
+            onClick={() => setIsDemoOpen(true)}
+            type="button"
           >
             <span>Request a demo</span>
             <span className="ml-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-electric-violet text-interface-grey transition-transform duration-300 group-hover:translate-x-1">
@@ -136,6 +140,8 @@ export function Navigation() {
           <Button
             variant="default"
             className="mt-4 group w-full px-6 py-2 rounded-full bg-white/10 border border-white/20 text-interface-grey hover:text-data-cyan hover:bg-white/15"
+            onClick={() => setIsDemoOpen(true)}
+            type="button"
           >
             <span>Request a demo</span>
             <span className="ml-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-electric-violet text-interface-grey transition-transform duration-300 group-hover:translate-x-1">
@@ -144,6 +150,8 @@ export function Navigation() {
           </Button>
         </nav>
       </div>
+
+      <BookDemoModal isOpen={isDemoOpen} onClose={() => setIsDemoOpen(false)} />
     </header>
   )
 }
